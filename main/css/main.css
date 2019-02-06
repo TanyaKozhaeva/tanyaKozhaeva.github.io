@@ -581,7 +581,7 @@ body {
 .mainScreen__promo > * {
   -ms-flex: 1;
   flex: 1;
-  margin-right: 52px;
+  margin-right: 32px;
 }
 
 .mainScreen__promo-icon {
