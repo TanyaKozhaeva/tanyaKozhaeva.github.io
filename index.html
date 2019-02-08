@@ -39,13 +39,25 @@
                   <use xlink:href="static/svg/symbol/sprite.svg#arrow-main"></use>
                 </svg>
               </button>
+              <ul class="nav__submenu submenu">
+                <li class="submenu__item"> <a class="submenu__link" href="#">Отправить деньги</a></li>
+                <li class="submenu__item"> <a class="submenu__link" href="#">Получить реальный обменный курс</a></li>
+                <li class="submenu__item"> <a class="submenu__link" href="#">Как это работает </a></li>
+                <li class="submenu__item"> <a class="submenu__link" href="#">Цены</a></li>
+              </ul>
             </li>
             <li class="nav__item">
-              <button class="nav__link" type="button"> <span class="nav__text">Получить деньги</span>
+              <button class="nav__link" type="button">  <span class="nav__text">Получить деньги</span>
                 <svg class="icon icon-arrow-main nav__icon" aria-hidden="true">
                   <use xlink:href="static/svg/symbol/sprite.svg#arrow-main"></use>
                 </svg>
               </button>
+              <ul class="nav__submenu submenu">
+                <li class="submenu__item"> <a class="submenu__link" href="#">Отправить деньги</a></li>
+                <li class="submenu__item"> <a class="submenu__link" href="#">Получить реальный обменный курс</a></li>
+                <li class="submenu__item"> <a class="submenu__link" href="#">Как это работает </a></li>
+                <li class="submenu__item"> <a class="submenu__link" href="#">Цены</a></li>
+              </ul>
             </li>
             <li class="nav__item">
               <button class="nav__link" type="button"> <span class="nav__text">Дебетовая карта</span>
@@ -53,6 +65,12 @@
                   <use xlink:href="static/svg/symbol/sprite.svg#arrow-main"></use>
                 </svg>
               </button>
+              <ul class="nav__submenu submenu">
+                <li class="submenu__item"> <a class="submenu__link" href="#">Отправить деньги</a></li>
+                <li class="submenu__item"> <a class="submenu__link" href="#">Получить реальный обменный курс</a></li>
+                <li class="submenu__item"> <a class="submenu__link" href="#">Как это работает </a></li>
+                <li class="submenu__item"> <a class="submenu__link" href="#">Цены</a></li>
+              </ul>
             </li>
             <li class="nav__item">
               <button class="nav__link" type="button"> <span class="nav__text">Бизнес</span>
@@ -60,6 +78,12 @@
                   <use xlink:href="static/svg/symbol/sprite.svg#arrow-main"></use>
                 </svg>
               </button>
+              <ul class="nav__submenu submenu">
+                <li class="submenu__item"> <a class="submenu__link" href="#">Отправить деньги</a></li>
+                <li class="submenu__item"> <a class="submenu__link" href="#">Получить реальный обменный курс</a></li>
+                <li class="submenu__item"> <a class="submenu__link" href="#">Как это работает </a></li>
+                <li class="submenu__item"> <a class="submenu__link" href="#">Цены</a></li>
+              </ul>
             </li>
             <li class="nav__item">
               <button class="nav__link" type="button"> <span class="nav__text">Подробнее</span>
@@ -67,8 +91,16 @@
                   <use xlink:href="static/svg/symbol/sprite.svg#arrow-main"></use>
                 </svg>
               </button>
+              <ul class="nav__submenu submenu">
+                <li class="submenu__item"> <a class="submenu__link" href="#">Отправить деньги</a></li>
+                <li class="submenu__item"> <a class="submenu__link" href="#">Получить реальный обменный курс</a></li>
+                <li class="submenu__item"> <a class="submenu__link" href="#">Как это работает </a></li>
+                <li class="submenu__item"> <a class="submenu__link" href="#">Цены</a></li>
+              </ul>
             </li>
-            <li class="nav__item"><a class="nav__link" href="#">Войти </a></li>
+            <li class="nav__item">
+              <button class="nav__link">Войти </button>
+            </li>
           </ul>
           <button class="nav__close" type="button" id="navCloseBtn"> <span class="hidden-text">Close navigation</span><span class="nav__close-icon">x</span></button>
         </nav><a class="btn btn_sm header__btn" href="#">Регистрация</a>
@@ -79,7 +111,7 @@
         <div class="mainScreen__text-box">
           <h1 class="mainScreen__title"> Bye bye bank feels, hello world<span class="mainScreen__title-dot">.</span>
           </h1>
-          <p class="mainScreen__text">При международных переводах банки берут до 5% так называемой скрытой комиссии. По итогам опросовб переводы с TransferWise <a href="#" target="blank">дешевле в 8 раз.</a><span> Все честно.</span></p><a class="btn btn_color_clear mainScreen__btn" href="#">Принцип работы</a>
+          <p class="mainScreen__text">При международных переводах банки берут до 5% так называемой скрытой комиссии. По итогам опросов переводы с TransferWise <a href="#" target="blank">дешевле в 8 раз.</a><span> Все честно.</span></p><a class="btn btn_color_clear mainScreen__btn" href="#">Принцип работы</a>
           <ul class="mainScreen__promo">
             <li class="mainScreen__promo-item">
               <svg class="icon icon-lock mainScreen__promo-icon" aria-hidden="true">
@@ -100,55 +132,62 @@
           </ul>
         </div>
         <div class="mainScreen__transfer-box">
-          <ul class="mainScreen__tabs tabs">
-            <li class="tabs__item tabs__item_active">
-              <svg class="icon icon-arrow tabs__icon tabs__icon_rotate_out" aria-hidden="true">
-                <use xlink:href="static/svg/symbol/sprite.svg#arrow"></use>
-              </svg>
-              <button class="tabs__btn" type="button">Отправить деньги</button>
+          <ul class="mainScreen__tabs tabs" id="tabs">
+            <li class="tabs__item">
+              <button class="tabs__btn tabs__btn_active" type="button" data-tab="send-money">
+                <svg class="icon icon-arrow tabs__icon tabs__icon_rotate_out" aria-hidden="true">
+                  <use xlink:href="static/svg/symbol/sprite.svg#arrow"></use>
+                </svg><span class="tabs__btn-text">Отправить деньги</span>
+              </button>
             </li>
             <li class="tabs__item">
-              <svg class="icon icon-arrow tabs__icon tabs__icon_rotate_in" aria-hidden="true">
-                <use xlink:href="static/svg/symbol/sprite.svg#arrow"></use>
-              </svg>
-              <button class="tabs__btn" type="button">Получить деньги</button>
+              <button class="tabs__btn" type="button" data-tab="get-money">
+                <svg class="icon icon-arrow tabs__icon tabs__icon_rotate_in" aria-hidden="true">
+                  <use xlink:href="static/svg/symbol/sprite.svg#arrow"></use>
+                </svg><span class="tabs__btn-text">Получить деньги</span>
+              </button>
             </li>
             <li class="tabs__item">
-              <svg class="icon icon-card tabs__icon" aria-hidden="true">
-                <use xlink:href="static/svg/symbol/sprite.svg#card"></use>
-              </svg>
-              <button class="tabs__btn" type="button">Дебетовая карта</button>
+              <button class="tabs__btn" type="button" data-tab="debit-card">
+                <svg class="icon icon-card tabs__icon" aria-hidden="true">
+                  <use xlink:href="static/svg/symbol/sprite.svg#card"></use>
+                </svg><span class="tabs__btn-text">Дебетовая карта</span>
+              </button>
             </li>
           </ul>
-          <form class="mainScreen__form form" name="transferMoney">
-            <div class="form__group">
-              <label class="form__label" for="sum">Вы отправляете</label>
-              <input class="form__input" type="text" id="sum" value="1,000">
-              <ul class="form__select">
-                <li class="form__select-item form__select-item_active"><span class="form__select-currency">EUR   </span></li>
-                <li class="form__select-item"> <span class="form__select-currency">GBP</span></li>
-                <li class="form__select-item"><span class="form__select-currency">USD  </span></li>
+          <div class="tabs-content-box">
+            <form class="tabs-content tabs-content_active mainScreen__form form" name="transferMoney" id="send-money">
+              <div class="form__group">
+                <label class="form__label" for="sumFrom">Вы отправляете</label>
+                <input class="form__input" type="text" id="sumFrom" value="1,000">
+                <ul class="form__select">
+                  <li class="form__select-item form__select-item_active"><span class="form__select-currency">EUR   </span></li>
+                  <li class="form__select-item"> <span class="form__select-currency">GBP</span></li>
+                  <li class="form__select-item"><span class="form__select-currency">USD  </span></li>
+                </ul>
+              </div>
+              <ul class="form__list">
+                <li class="form__list-item"> <span class="form__list-icon" aria-hidden="true">-</span><span class="form__list-sum form__list-sum_bold">0.74 EUR</span>
+                  <button class="form__list-btn" type="button">Быстрый перевод</button>
+                </li>
+                <li class="form__list-item"><span class="form__list-icon" aria-hidden="true"></span><span class="form__list-sum">975.74 EUR</span><span class="form__list-text">Конвертируемая сумма</span></li>
+                <li class="form__list-item"><span class="form__list-icon" aria-hidden="true">х</span><span class="form__list-sum">31.86</span><span class="form__list-text form__list-text_under">Гарантированный курс</span></li>
               </ul>
-            </div>
-            <ul class="form__list">
-              <li class="form__list-item"> <span class="form__list-icon" aria-hidden="true">-</span><span class="form__list-sum form__list-sum_bold">0.74 EUR</span>
-                <button class="form__list-btn" type="button">Быстрый и удобный перевод</button><span class="form__list-text">комиссия</span>
-              </li>
-              <li class="form__list-item"><span class="form__list-icon" aria-hidden="true"></span><span class="form__list-sum">975.74 EUR</span><span class="form__list-text">Конвертируемая сумма</span></li>
-              <li class="form__list-item"><span class="form__list-icon" aria-hidden="true">х</span><span class="form__list-sum">31.86</span><span class="form__list-text form__list-text_under">Гарантированный курс (48 часов)</span></li>
-            </ul>
-            <div class="form__group">
-              <label class="form__label" for="sum">Получатель получит</label>
-              <input class="form__input" type="text" id="sum" value="1,000">
-              <ul class="form__select">
-                <li class="form__select-item form__select-item_active"> <span class="form__select-currency">UAH </span></li>
-                <li class="form__select-item"><span class="form__select-currency">GBP </span></li>
-                <li class="form__select-item"><span class="form__select-currency">USD </span></li>
-              </ul>
-            </div>
-            <p class="form__date">Должны поступить: <strong>янв 31</strong></p>
-            <div class="form__controls"><a class="btn btn_color_green form__controls-item" href="#">Сравнить цены</a><a class="btn btn_color_blue form__controls-item" hre="#">Начать перевод</a></div>
-          </form>
+              <div class="form__group">
+                <label class="form__label" for="sumTo">Получатель получит</label>
+                <input class="form__input" type="text" id="sumTo" value="1,000">
+                <ul class="form__select">
+                  <li class="form__select-item form__select-item_active"> <span class="form__select-currency">UAH </span></li>
+                  <li class="form__select-item"><span class="form__select-currency">GBP </span></li>
+                  <li class="form__select-item"><span class="form__select-currency">USD </span></li>
+                </ul>
+              </div>
+              <p class="form__date">Должны поступить: <strong>янв 31</strong></p>
+              <div class="form__controls"><a class="btn btn_color_green form__controls-item" href="#">Сравнить цены</a><a class="btn btn_color_blue form__controls-item" href="#">Начать перевод</a></div>
+            </form>
+            <div class="tabs-content" id="get-money"> <span class="title">Receive money</span></div>
+            <div class="tabs-content" id="debit-card"> <span class="title">Debit card</span></div>
+          </div>
         </div>
       </div>
     </section>
@@ -299,13 +338,13 @@
         </p>
         <div class="s-map__map map">
           <div class="map__item map__item_brazil">
-            <div class="map__item-inner"><span class="map__item-marker" arria-hidden="true"></span><span class="map__text">1221$ 10 дней назад</span><span class="map__text map__text_dark">16,6$ сэкономлено</span></div>
+            <div class="map__item-inner"><span class="map__item-marker"></span><span class="map__text">1221$ 10 дней назад</span><span class="map__text map__text_dark">16,6$ сэкономлено</span></div>
           </div>
           <div class="map__item map__item_rus">
-            <div class="map__item-inner"><span class="map__item-marker" arria-hidden="true"></span><span class="map__text">3009$ 10 дней назад</span><span class="map__text map__text_dark">60$ сэкономлено</span></div>
+            <div class="map__item-inner"><span class="map__item-marker"></span><span class="map__text">3009$ 10 дней назад</span><span class="map__text map__text_dark">60$ сэкономлено</span></div>
           </div>
           <div class="map__item map__item_usa">
-            <div class="map__item-inner"><span class="map__item-marker" arria-hidden="true"></span><span class="map__text">10000$ 10 дней назад</span><span class="map__text map__text_dark">393$ сэкономлено</span></div>
+            <div class="map__item-inner"><span class="map__item-marker"></span><span class="map__text">10000$ 10 дней назад</span><span class="map__text map__text_dark">393$ сэкономлено</span></div>
           </div>
         </div>
         <p class="section__text text">Мы предоставляем услуги в 71 и осуществляем оперции с более чем 1300 валютными маршрутами.  <a href="#" target="blank" class="text__link">Узнать больше о поддерживаемых валютах.</a><br>Мы постоянно добавляем новые валюты, помогая людям экономить на международных переводах.
