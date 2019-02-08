@@ -15,15 +15,72 @@ $('.slider__feedback-slides').slick({
 (function() {
 var navBtn = document.getElementById('toggle-navigation-btn'),
     navCloseBtn = document.getElementById('navCloseBtn'),
-    mainNav = document.getElementById('mainNav')
+    mainNav = document.getElementById('mainNav'),
+    mainNavItems = document.querySelectorAll('.nav__item');
+
 navBtn.onclick = function() {
 	mainNav.classList.toggle('nav_open')
 }
 
 navCloseBtn.onclick = function() {
+  for(var i=0; i<mainNavItems.length; i++){
+    mainNavItems[i].classList.remove('nav__item_active')
+  };
   mainNav.classList.remove('nav_open')
 }
+
+
+mainNav.onclick = function(e) {
+  var target = e.target;
+  while(target != mainNav){
+    console.log(target)
+    if(target.classList.contains('nav__item')){
+      for(var i=0; i<mainNavItems.length; i++){
+        mainNavItems[i].classList.remove('nav__item_active')
+      }
+      target.classList.add('nav__item_active')
+      break;
+    } else {
+      target = target.parentNode;
+    }
+  }
+}
 }());
+
+
+
+//TABS
+(function(){
+  var tabsBox = document.getElementById('tabs'),
+      tabsBtn = document.querySelectorAll('.tabs__btn'),
+      tabContent = document.querySelectorAll('.tabs-content');
+  tabsBox.onclick = function(e){
+    var target = e.target;
+    while(target != tabsBox){
+      if(target.classList.contains('tabs__btn')){
+        break;
+      } else {
+        target = target.parentNode;
+      }
+    }
+    var data = target.getAttribute('data-tab');
+
+
+
+    for(var i=0; i<tabsBtn.length; i++){
+      tabsBtn[i].classList.remove('tabs__btn_active');
+    }
+    target.classList.add('tabs__btn_active')
+
+
+    for(var i=0; i<tabContent.length; i++){
+      tabContent[i].classList.remove('tabs-content_active');
+    }
+    document.getElementById(data).classList.add('tabs-content_active');
+  }
+}());
+
+
 
 
 
