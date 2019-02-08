@@ -539,7 +539,9 @@ body {
         -ms-flex-direction: column;
             flex-direction: column;
         padding-left: 0;
-        padding-right: 0; }
+        padding-right: 0;
+        -ms-flex-align: center;
+            align-items: center; }
         .mainScreen .wrapper > * {
           width: 100%; } }
   .mainScreen__title {
