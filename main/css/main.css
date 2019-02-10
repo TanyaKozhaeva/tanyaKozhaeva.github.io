@@ -110,9 +110,7 @@ body {
   .form__group {
     display: -ms-flexbox;
     display: flex;
-    border-radius: 3px;
-    position: relative;
-    overflow: hidden; }
+    position: relative; }
   .form__input {
     width: 100%;
     padding: 38px 13px 10px;
@@ -120,6 +118,8 @@ body {
     -ms-flex: 2;
         flex: 2;
     background-color: #fff;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
     font-size: 22px;
     line-height: 32px;
     color: #2e4369;
@@ -127,7 +127,7 @@ body {
     transition: border .3s ease-in; }
     .form__input:focus {
       border-color: #00a4df; }
-    .form__input:focus ~ .form__select {
+    .form__input:focus ~ .form__choose-btn {
       border-color: #00a4df; }
   .form__label {
     position: absolute;
@@ -136,36 +136,46 @@ body {
     font-size: 14px;
     line-height: 20px;
     color: #5d7079; }
-  .form__select {
+  .form__choose-btn {
     -ms-flex: 1;
         flex: 1;
     border: 1px solid transparent;
-    transition: border .3s ease-in; }
-  .form__select-item {
+    transition: border .3s ease-in;
     padding: 25px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
     text-align: center;
     background-color: #2e4369;
-    display: none;
     height: 100%;
     box-sizing: border-box;
     white-space: nowrap; }
-    .form__select-item_active {
-      display: block; }
     @media screen and (max-width: 880px) {
-      .form__select-item {
+      .form__choose-btn {
         padding-left: 15px;
         padding-right: 15px; } }
-  .form__select-icon {
+  .form__choose-icon, .choose-currency__icon {
+    display: inline-block;
     width: 25px;
     height: 20px;
     margin-right: 9px;
     vertical-align: middle; }
-  .form__select-currency {
+  .form__choose-text {
     font-size: 20px;
     line-height: 32px;
     font-weight: 600;
     color: #fff;
     vertical-align: middle; }
+  .form__choose-currency {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    max-height: 400px;
+    box-sizing: border-box;
+    z-index: 200;
+    display: none; }
+    .form__group_active .form__choose-currency {
+      display: block; }
   .form__list {
     padding: 20px 0;
     padding-left: 23px;
@@ -231,6 +241,53 @@ body {
           flex: 1 200px;
       margin: 0 12px 12px; }
 
+.choose-currency {
+  padding: 8px;
+  border-radius: 3px;
+  background-color: #fff;
+  box-shadow: 0 2px 80px 0 rgba(0, 0, 0, 0.2);
+  overflow-y: auto; }
+  .choose-currency__input {
+    width: 100%;
+    padding: 13px 16px;
+    box-sizing: border-box;
+    font-size: 16px;
+    line-height: 24px;
+    border-bottom: 1px solid #f2f5f7;
+    color: #2e4369;
+    border-radius: 3px; }
+  .choose-currency__title {
+    font-size: 14px;
+    line-height: 24px;
+    color: #2e4369;
+    padding: 8px 16px; }
+  .choose-currency__item {
+    padding: 13px 16px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    border-radius: 3px;
+    color: #37517e;
+    transition: all .2s linear;
+    cursor: pointer; }
+    .choose-currency__item:not(.choose-currency__item_chosen):focus, .choose-currency__item:not(.choose-currency__item_chosen):hover {
+      background-color: #f2f5f7; }
+    .choose-currency__item_chosen {
+      background-color: #2e4369;
+      color: #fff; }
+  .choose-currency__icon {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center; }
+    .choose-currency__icon_eur {
+      background-image: url("../../static/svg/eur.svg"); }
+    .choose-currency__icon_uah {
+      background-image: url("../../static/svg/uah.svg"); }
+    .choose-currency__icon_gbp {
+      background-image: url("../../static/svg/gbp.svg"); }
+    .choose-currency__icon_usd {
+      background-image: url("../../static/svg/usd.svg"); }
+
 .header {
   height: 76px;
   background-color: #37517e; }
@@ -269,7 +326,7 @@ body {
     margin-right: 2%; }
     @media screen and (max-width: 1024px) {
       .header__nav {
-        width: 264px; } }
+        width: 284px; } }
   @media screen and (min-width: 1025px) {
     .header__sandwich-btn {
       display: none; } }
@@ -312,7 +369,7 @@ body {
     color: #00a4df;
     position: absolute;
     top: 12px;
-    left: 274px; }
+    left: 294px; }
     @media screen and (min-width: 1025px) {
       .nav__close {
         display: none; } }
