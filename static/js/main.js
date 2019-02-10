@@ -33,7 +33,6 @@ navCloseBtn.onclick = function() {
 mainNav.onclick = function(e) {
   var target = e.target;
   while(target != mainNav){
-    console.log(target)
     if(target.classList.contains('nav__item')){
       for(var i=0; i<mainNavItems.length; i++){
         mainNavItems[i].classList.remove('nav__item_active')
@@ -46,8 +45,20 @@ mainNav.onclick = function(e) {
   }
 }
 }());
+/*
+//CUSTOM SCROLL
+function setCustomScrollonMobile(){
+  var objectToScroll = document.querySelectorAll('.js-custom-scroll');
+  var simplebarObj;
+  if(window.innerWidth <= 1024){
+    simplebarObj = new SimpleBar(objectToScroll[0]);
+    //simplebarObj.recalculate();
+  }
+}
+window.addEventListener('load', setCustomScrollonMobile);
+window.addEventListener('resize', setCustomScrollonMobile);
 
-
+*/
 
 //TABS
 (function(){
@@ -83,6 +94,61 @@ mainNav.onclick = function(e) {
 
 
 
+//CHOOSE CURRENCY
+(function(){
+  var chooseCurrencyBtns = document.querySelectorAll('.form__choose-btn');
+  [].forEach.call(chooseCurrencyBtns, function(item){
+    item.onclick = function(e) {
+      var target = e.target;
+      if(target != this){
+        target = target.parentNode;
+      }
+      target.parentNode.classList.add('form__group_active');
+    }
+  })
+
+
+  var currencyItemsContainer = document.querySelectorAll('.choose-currency__list');
+  [].forEach.call(currencyItemsContainer, function(item){
+    item.onclick = chooseCurrency(item);
+  })
+
+
+
+  function chooseCurrency(container){
+    var allCurrencyItems = container.querySelectorAll('.choose-currency__item');
+    [].forEach.call(allCurrencyItems, function(item){
+      item.onclick = function(e){
+        var target = e.target;
+        if(target != this){
+          target = target.parentNode;
+        }
+        for(var i=0; i<allCurrencyItems.length; i++){
+          allCurrencyItems[i].classList.remove('choose-currency__item_chosen')
+        }
+        target.classList.add('choose-currency__item_chosen');
+        getChosenCurrencyDetails(target);
+      }
+    })
+
+  }
+
+
+  function getChosenCurrencyDetails(item){
+    var data = item.getAttribute('data-currency');
+    while(!item.classList.contains('form__group')){
+      item = item.parentNode;
+    }
+    var chooseBtn = item.querySelector('.form__choose-text');
+    chooseBtn.innerHTML = data;
+    item.classList.remove('form__group_active');
+
+  }
+
+
+}());
+
+
 
 
 //SHOW TRANSAKTIONS ON THE MAP
@@ -116,18 +182,17 @@ mainNav.onclick = function(e) {
   var video = document.getElementById('video'),
       videoPlayBtn = document.getElementById('playBtn'),
       videoPauseBtn = document.getElementById('pauseBtn'),
-      videoTitle = document.querySelectorAll('.video__title');
+      videoTitle = document.querySelector('.video__title');
       video.controls = false;
       videoPlayBtn.onclick = function() {
-        videoTitle[0].classList.add('video__title_hidden');
+        videoTitle.classList.add('video__title_hidden');
         this.classList.add('video__playBtn_hidden');
         videoPauseBtn.classList.remove('video__pauseBtn_hidden');
         video.play();
       };
 
   videoPauseBtn.onclick = function() {
-    console.log(this, videoPlayBtn);
-    videoTitle[0].classList.remove('video__title_hidden');
+    videoTitle.classList.remove('video__title_hidden');
     this.classList.add('video__pauseBtn_hidden');
     videoPlayBtn.classList.remove('video__playBtn_hidden');
     video.pause();
