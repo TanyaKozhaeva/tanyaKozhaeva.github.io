@@ -32,7 +32,7 @@
           <use xlink:href="static/svg/symbol/sprite.svg#logo"></use>
         </svg>
         <nav class="nav header__navbar" id="mainNav">
-          <ul class="nav__wrap header__nav">
+          <ul class="nav__wrap header__nav js-custom-scroll">
             <li class="nav__item">
               <button class="nav__link" type="button"> <span class="nav__text">Отправить деньги</span>
                 <svg class="icon icon-arrow-main nav__icon" aria-hidden="true">
@@ -111,14 +111,14 @@
         <div class="mainScreen__text-box">
           <h1 class="mainScreen__title"> Bye bye bank feels, hello world<span class="mainScreen__title-dot">.</span>
           </h1>
-          <p class="mainScreen__text">При международных переводах банки берут до 5% так называемой скрытой комиссии. По итогам опросов переводы с TransferWise <a href="#" target="_blank">дешевле в 8 раз.</a><span> Все честно.</span></p><a class="btn btn_color_clear mainScreen__btn" href="#">Принцип работы</a>
+          <p class="mainScreen__text">При международных переводах банки берут до 5% так называемой скрытой комиссии. По итогам опросов переводы с TransferWise <a href="#" target="blank">дешевле в 8 раз.</a><span> Все честно.</span></p><a class="btn btn_color_clear mainScreen__btn" href="#">Принцип работы</a>
           <ul class="mainScreen__promo">
             <li class="mainScreen__promo-item">
               <svg class="icon icon-lock mainScreen__promo-icon" aria-hidden="true">
                 <use xlink:href="static/svg/symbol/sprite.svg#lock"></use>
               </svg>
               <div class="mainScreen__promo-text-wrap">
-                <p class="mainScreen__promo-text">Регулируется FCA</p><a class="mainScreen__promo-link" href="#" target="_blank">Узнать больше</a>
+                <p class="mainScreen__promo-text">Регулируется FCA</p><a class="mainScreen__promo-link" href="#" target="blank">Узнать больше</a>
               </div>
             </li>
             <li class="mainScreen__promo-item">
@@ -126,7 +126,7 @@
                 <use xlink:href="static/svg/symbol/sprite.svg#people"></use>
               </svg>
               <div class="mainScreen__promo-text-wrap">
-                <p class="mainScreen__promo-text">Более 4 миллионов клиентов</p><a class="mainScreen__promo-link" href="#" target="_blank">Подробнее на Trastpoint</a>
+                <p class="mainScreen__promo-text">Более 4 миллионов клиентов</p><a class="mainScreen__promo-link" href="#" target="blank">Подробнее на Trastpoint</a>
               </div>
             </li>
           </ul>
@@ -160,11 +160,20 @@
               <div class="form__group">
                 <label class="form__label" for="sumFrom">Вы отправляете</label>
                 <input class="form__input" type="text" id="sumFrom" value="1,000">
-                <ul class="form__select">
-                  <li class="form__select-item form__select-item_active"><span class="form__select-currency">EUR   </span></li>
-                  <li class="form__select-item"> <span class="form__select-currency">GBP</span></li>
-                  <li class="form__select-item"><span class="form__select-currency">USD  </span></li>
-                </ul>
+                <button class="form__choose-btn" type="button"><span class="form__choose-text">EUR</span></button>
+                <div class="choose-currency form__choose-currency">
+                  <header class="choose-currency__header">
+                    <label class="hidden-text" for="search-currency">Выберите валюту</label>
+                    <input class="choose-currency__input" type="search" name="search-currency" id="search-currency" placeholder="Выберите валюту">
+                    <h2 class="choose-currency__title">Популярные валюты</h2>
+                  </header>
+                  <ul class="choose-currency__list">
+                    <li class="choose-currency__item choose-currency__item_chosen" data-currency="EUR"> <span class="choose-currency__icon choose-currency__icon_eur"> </span><span class="choose-currency__text">EUR</span></li>
+                    <li class="choose-currency__item" data-currency="UAH"> <span class="choose-currency__icon choose-currency__icon_uah"></span><span class="choose-currency__text">UAH</span></li>
+                    <li class="choose-currency__item" data-currency="GBP"> <span class="choose-currency__icon choose-currency__icon_gbp"></span><span class="choose-currency__text">GBP</span></li>
+                    <li class="choose-currency__item" data-currency="USD"> <span class="choose-currency__icon choose-currency__icon_usd"> </span><span class="choose-currency__text">USD</span></li>
+                  </ul>
+                </div>
               </div>
               <ul class="form__list">
                 <li class="form__list-item"> <span class="form__list-icon" aria-hidden="true">-</span><span class="form__list-sum form__list-sum_bold">0.74 EUR</span>
@@ -176,11 +185,19 @@
               <div class="form__group">
                 <label class="form__label" for="sumTo">Получатель получит</label>
                 <input class="form__input" type="text" id="sumTo" value="1,000">
-                <ul class="form__select">
-                  <li class="form__select-item form__select-item_active"> <span class="form__select-currency">UAH </span></li>
-                  <li class="form__select-item"><span class="form__select-currency">GBP </span></li>
-                  <li class="form__select-item"><span class="form__select-currency">USD </span></li>
-                </ul>
+                <button class="form__choose-btn" type="button"><span class="form__choose-text">UAH</span></button>
+                <div class="choose-currency form__choose-currency">
+                  <header class="choose-currency__header">
+                    <label class="hidden-text" for="search-currency">Выберите валюту</label>
+                    <input class="choose-currency__input" type="search" name="search-currency" id="search-currency" placeholder="Выберите валюту">
+                    <h2 class="choose-currency__title">Популярные валюты</h2>
+                  </header>
+                  <ul class="choose-currency__list">
+                    <li class="choose-currency__item" data-currency="EUR"><span class="choose-currency__icon choose-currency__icon_eur"> </span><span class="choose-currency__text">EUR</span></li>
+                    <li class="choose-currency__item choose-currency__item_chosen" data-currency="UAH"> <span class="choose-currency__icon choose-currency__icon_uah"></span><span class="choose-currency__text">UAH</span></li>
+                    <li class="choose-currency__item" data-currency="USD"> <span class="choose-currency__icon choose-currency__icon_usd"> </span><span class="choose-currency__text">USD</span></li>
+                  </ul>
+                </div>
               </div>
               <p class="form__date">Должны поступить: <strong>янв 31</strong></p>
               <div class="form__controls"><a class="btn btn_color_green form__controls-item" href="#">Сравнить цены</a><a class="btn btn_color_blue form__controls-item" href="#">Начать перевод</a></div>
@@ -195,11 +212,11 @@
       <div class="wrapper">
         <div class="section__pic-wrap">
           <picture class="section__graph"><img src="static/img/content/graph.jpg" alt="currency course"></picture>
-          <p class="section__text text text_size_sm">За последние 30 дней</p><a class="btn btn_color_clear btn_sm" href="#" target="_blank">Отслеживать этот обменный курс</a>
+          <p class="section__text text text_size_sm">За последние 30 дней</p><a class="btn btn_color_clear btn_sm" href="#" target="blank">Отслеживать этот обменный курс</a>
         </div>
         <div class="section__text-wrap">
           <h2 class="section__title title">Мы предлагаем Вам честный обменный курс</h2>
-          <p class="section__text text">Каждый банк устанавливает свой обменный курс для извлечениянаибольшей выгоды. TransferWise конвертирует деньги по реальному <a href="#" target="_blank" class="text__link">среднерыночному</a> обменному курсу. Мы гарантируем обменный курс, если Ваши деньги поступят на счет в течение 24 часов.
+          <p class="section__text text">Каждый банк устанавливает свой обменный курс для извлечениянаибольшей выгоды. TransferWise конвертирует деньги по реальному <a href="#" target="blank" class="text__link">среднерыночному</a> обменному курсу. Мы гарантируем обменный курс, если Ваши деньги поступят на счет в течение 24 часов.
           </p>
         </div>
       </div>
@@ -224,7 +241,7 @@
         </div>
         <div class="section__text-wrap">
           <h2 class="section__title title title_color_lighten">Вы всегда знаете, где ваши деньги</h2>
-          <p class="section__text text">Мы будем держать вас в курсе кажого этапа перевода. Вы также можете следить за прогрессом пеервода через нащше <a href="#" target="_blank" class="text__link">приложение</a> или сайт, где бы Вы ни находились
+          <p class="section__text text">Мы будем держать вас в курсе кажого этапа перевода. Вы также можете следить за прогрессом пеервода через нащше <a href="#" target="blank" class="text__link">приложение</a> или сайт, где бы Вы ни находились
           </p>
         </div>
       </div>
@@ -246,7 +263,7 @@
     <section class="section-feedbacks">
       <div class="wrapper">
         <h2 class="section-feedbacks__title title title_color_light">Рейтинг 5 из 5, 57211 отзывов на TrastPilot</h2>
-        <p class="section-feedbacks__text text text_color_light">Не соглашайтесь на меньшее - это ведь Ваши деньги. Ознакомиться со всеми отзывами можно на <a href="#" target="_blank">Trastpilot.com</a>
+        <p class="section-feedbacks__text text text_color_light">Не соглашайтесь на меньшее - это ведь Ваши деньги. Ознакомиться со всеми отзывами можно на <a href="#" target="blank">Trastpilot.com</a>
         </p>
         <div class="section-feedbacks__slider slider">
           <button class="slider__prev-btn" type="button">
@@ -325,7 +342,7 @@
             </blockquote>
           </div>
         </div>
-        <p class="section-feedbacks__text text text_color_light">Отывы на <a href="#" target="_blank">Trustpilot</a>
+        <p class="section-feedbacks__text text text_color_light">Отывы на <a href="#" target="blank">Trustpilot</a>
         </p>
       </div>
     </section>
@@ -334,7 +351,7 @@
         <h2 class="section__title title">Нам доверяют по всему миру</h2>
         <p class="section__text text">Люди по всему миру выбирают TransferWise.</p>
         <p class="section__text text">Мы переводим более 3 миллиардов каждый месяц и помогаем таким клиентам как Вы сэкономить миллионы фунтов.</p>
-        <p class="section__text text"> Приведенные ниже данные соответствуют переводам, сделанным через TransferWise. Мы помогаем экономить, используя данные, собранные независимой организацией <a href="#" target="_blank" class="text__link">здесь</a>.
+        <p class="section__text text"> Приведенные ниже данные соответствуют переводам, сделанным через TransferWise. Мы помогаем экономить, используя данные, собранные независимой организацией <a href="#" target="blank" class="text__link">здесь</a>.
         </p>
         <div class="s-map__map map">
           <div class="map__item map__item_brazil">
@@ -347,7 +364,7 @@
             <div class="map__item-inner"><span class="map__item-marker"></span><span class="map__text">10000$ 10 дней назад</span><span class="map__text map__text_dark">393$ сэкономлено</span></div>
           </div>
         </div>
-        <p class="section__text text">Мы предоставляем услуги в 71 и осуществляем оперции с более чем 1300 валютными маршрутами.  <a href="#" target="_blank" class="text__link">Узнать больше о поддерживаемых валютах.</a><br>Мы постоянно добавляем новые валюты, помогая людям экономить на международных переводах.
+        <p class="section__text text">Мы предоставляем услуги в 71 и осуществляем оперции с более чем 1300 валютными маршрутами.  <a href="#" target="blank" class="text__link">Узнать больше о поддерживаемых валютах.</a><br>Мы постоянно добавляем новые валюты, помогая людям экономить на международных переводах.
         </p>
         <ul class="s-map__press press">
           <li class="press__item wired">
@@ -404,9 +421,9 @@
         </div>
       </div>
     </footer>
-    <script src="static/js/jquery.js"></script>
+    <script src="static/js/jquery.js"> </script>
     <script src="static/libs/svg4everybody.js"></script>
     <script src="static/libs/slick/slick.min.js"></script>
-    <script src="static/js/main.js"></script>
+    <script src="static/js/main.js"> </script>
   </body>
 </html>
