@@ -280,13 +280,13 @@ body {
     background-size: cover;
     background-position: center; }
     .choose-currency__icon_eur {
-      background-image: url("../static/svg/eur.svg"); }
+      background-image: url("../../static/svg/eur.svg"); }
     .choose-currency__icon_uah {
-      background-image: url("../static/svg/uah.svg"); }
+      background-image: url("../../static/svg/uah.svg"); }
     .choose-currency__icon_gbp {
-      background-image: url("../static/svg/gbp.svg"); }
+      background-image: url("../../static/svg/gbp.svg"); }
     .choose-currency__icon_usd {
-      background-image: url("../static/svg/usd.svg"); }
+      background-image: url("../../static/svg/usd.svg"); }
 
 .header {
   height: 76px;
