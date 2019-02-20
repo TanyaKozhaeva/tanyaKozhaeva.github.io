@@ -1,7 +1,15 @@
 ;
 svg4everybody();
 
-
+/*
+$(window).on("load", function(){
+  console.log('load')
+  var sections = $('.section');
+  sections.each(function(){
+    $(this).addClass('section_active')
+  })
+});
+*/
 
 //SLIDER
 $('.slider__feedback-slides').slick({
@@ -45,14 +53,6 @@ mainNav.onclick = function(e) {
   }
 }
 }());
-
-
-//CUSTOM SCROLL
-/*
-(function(){
-  $('.js-custom-scroll').each(element, new Simplebar)
-}());
-*/
 
 //TABS
 (function(){
@@ -104,9 +104,6 @@ mainNav.onclick = function(e) {
   [].forEach.call(currencyItemsContainer, function(item){
     item.onclick = chooseCurrency(item);
   })
-
-
-
   function chooseCurrency(container){
     var allCurrencyItems = container.querySelectorAll('.choose-currency__item');
     [].forEach.call(allCurrencyItems, function(item){
@@ -124,8 +121,6 @@ mainNav.onclick = function(e) {
     })
 
   }
-
-
   function getChosenCurrencyDetails(item){
     var data = item.getAttribute('data-currency');
     while(!item.classList.contains('form__group')){
@@ -136,8 +131,6 @@ mainNav.onclick = function(e) {
     item.classList.remove('form__group_active');
 
   }
-
-
 }());
 
 
@@ -243,12 +236,26 @@ mainNav.onclick = function(e) {
 (function(){
   var openRegisterWindow = document.getElementById('user-signInUp-openBtn'),
       closeBtn = document.getElementById('user-signInUp-closeBtn'),
-      userSignInUpWindow = document.querySelector('.s-register');
+      userSignInUpWindow = document.querySelector('.s-register'),
+      userSignInUpWindowPic = document.querySelector('.s-register__picture-block'),
+      userSignInUpWindowForm = document.querySelector('.s-register__form-block')
 
   openRegisterWindow.onclick = function(){
     userSignInUpWindow.classList.add('s-register_active')
+    userSignInUpWindowPic.classList.remove('s-register__picture-block_disabled')
+    userSignInUpWindowForm.classList.remove('s-register__form-block_disabled')
+    userSignInUpWindowPic.classList.add('s-register__picture-block_active')
+    userSignInUpWindowForm.classList.add('s-register__form-block_active')
   }
   closeBtn.onclick = function(){
-    userSignInUpWindow.classList.remove('s-register_active')
+    setTimeout(function(){
+      userSignInUpWindow.classList.remove('s-register_active');
+    },500)
+    userSignInUpWindowPic.classList.remove('s-register__picture-block_active')
+    userSignInUpWindowPic.classList.add('s-register__picture-block_disabled')
+    userSignInUpWindowForm.classList.remove('s-register__form-block_active')
+    userSignInUpWindowForm.classList.add('s-register__form-block_disabled')
+
+
   }
 }());
