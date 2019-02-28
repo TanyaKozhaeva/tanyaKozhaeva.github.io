@@ -159,7 +159,7 @@ mainNav.onclick = function(e) {
 
 }());
 
-/*
+
 //CUSTOM VIDEO CONTROLS
 (function() {
   var video = document.getElementById('video'),
@@ -182,7 +182,6 @@ mainNav.onclick = function(e) {
   };
 }());
 
-*/
 //FORM VALIDATION
 (function () {
         $('.user-form').each(function () {
