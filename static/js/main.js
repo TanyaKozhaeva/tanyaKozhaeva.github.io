@@ -1,15 +1,14 @@
 ;
 svg4everybody();
 
-/*
+  
 $(window).on("load", function(){
   console.log('load')
-  var sections = $('.section');
-  sections.each(function(){
-    $(this).addClass('section_active')
-  })
+  var preloader = $('#preloader');
+  preloader.addClass('preloader_done')
 });
-*/
+
+
 
 //SLIDER
 $('.slider__feedback-slides').slick({
@@ -181,6 +180,7 @@ mainNav.onclick = function(e) {
     video.pause();
   };
 }());
+
 
 //FORM VALIDATION
 (function () {
