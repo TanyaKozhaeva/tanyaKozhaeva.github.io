@@ -1,12 +1,7 @@
 ;
 svg4everybody();
 
-  
-$(window).on("load", function(){
-  console.log('load')
-  var preloader = $('#preloader');
-  preloader.addClass('preloader_done')
-});
+ 
 
 
 
