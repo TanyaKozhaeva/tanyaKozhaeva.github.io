@@ -464,6 +464,20 @@ body {
   border-radius: 3px;
 }
 
+.choose-currency__input:-ms-input-placeholder {
+  font-family: "Gilroy", Arial, sans-serif;
+  font-size: inherit;
+  font-weight: inherit;
+  color: #829ca9;
+}
+
+.choose-currency__input::placeholder {
+  font-family: "Gilroy", Arial, sans-serif;
+  font-size: inherit;
+  font-weight: inherit;
+  color: #829ca9;
+}
+
 .choose-currency__title {
   font-size: 14px;
   line-height: 24px;
@@ -507,6 +521,79 @@ body {
     transform: scaleY(1);
   }
 }
+
+.preloader {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 5000;
+  background-color: #37517e;
+  transition: all .2s;
+  opacity: 1;
+  visibility: visible;
+}
+
+.preloader_done {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/*
+	&__object
+		position: absolute
+		top: 50%
+		left: 50%
+		transform: translate(-50%, -50%) */
+
+/*.loader
+	position: relative
+	width: 5px
+	height: 5px
+
+	top: 49%
+	top: -webkit-calc(50% - 43px)
+	top: calc(50% - 2.5px)
+	left: 49%
+	left: -webkit-calc(50% - 43px)
+	left: calc(50% - 2.5px)
+
+	background-color: #fff
+	border-radius: 50px */
+
+/*.loader:before
+	content: ""
+	position: absolute
+	top: -38px
+	border-top: 3px solid #fff
+	border-right: 3px solid #fff
+	border-radius: 0 50px 0px  0
+	width: 40px
+	height: 40px
+	background-color: rgba(255, 255, 255, .1)
+	transform-origin:  0% 100%
+	animation: loader 1.5s linear infinite */
+
+/*.loader:after
+	content: ""
+	position: absolute
+	top: 2px
+	right: 2px
+	border-bottom: 3px solid #fff
+	border-left: 3px solid #fff
+	border-radius: 0 0px 0px  50px
+	width: 40px
+	height: 40px
+	background-color: rgba(255, 255, 255, .1)
+	transform-origin:  100% 0%
+	animation: loader 1.5s linear infinite */
+
+/*@keyframes loader
+	0%
+		transform: rotate(0deg)
+	100%
+		transform: rotate(360deg) */
 
 .header {
   height: 76px;
@@ -597,9 +684,12 @@ body {
 }
 
 .nav__link {
-  display: inline-block;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
   height: 100%;
-  padding: .5em 1.5em .5em 1em;
+  padding: .5em 1em;
   position: relative;
   white-space: nowrap;
   box-sizing: border-box;
@@ -607,6 +697,7 @@ body {
 
 .nav__text {
   position: relative;
+  margin-right: 5px;
 }
 
 .nav__icon {
@@ -1015,14 +1106,14 @@ body {
 }
 
 .user-form__input:-ms-input-placeholder {
-  font-family: inherit;
+  font-family: "Gilroy", Arial, sans-serif;
   font-size: inherit;
   font-weight: inherit;
   color: #829ca9;
 }
 
 .user-form__input::placeholder {
-  font-family: inherit;
+  font-family: "Gilroy", Arial, sans-serif;
   font-size: inherit;
   font-weight: inherit;
   color: #829ca9;
@@ -1545,7 +1636,7 @@ body {
     position: absolute;
     top: 0;
     margin-top: -7px;
-    right: 22px;
+    right: 15px;
   }
 
   .mainScreen::before {
