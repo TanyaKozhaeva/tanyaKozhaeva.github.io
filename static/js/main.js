@@ -1,9 +1,10 @@
 ;
 svg4everybody();
-
- 
-
-
+AOS.init({
+  disable: function(){
+    return window.innerWidth < 1024
+  }
+});
 
 //SLIDER
 $('.slider__feedback-slides').slick({
@@ -83,6 +84,8 @@ mainNav.onclick = function(e) {
 //CHOOSE CURRENCY
 (function(){
   var chooseCurrencyBtns = document.querySelectorAll('.form__choose-btn');
+  var inputs = document.querySelectorAll('.search-input-js');
+  var currencyItems = document.querySelectorAll('.choose-currency__item');
   [].forEach.call(chooseCurrencyBtns, function(item){
     item.onclick = function(e) {
       var target = e.target;
@@ -90,9 +93,24 @@ mainNav.onclick = function(e) {
         target = target.parentNode;
       }
       target.parentNode.classList.add('form__group_active');
-    }
+      clearInputs();
+      showCurrencyItemsAfterFilter();
+    };
+
   })
 
+
+function clearInputs(){
+  [].forEach.call(inputs, function(input){
+    input.value = '';
+  });
+}
+
+function showCurrencyItemsAfterFilter(){
+  [].forEach.call(currencyItems, function(item){
+    item.style.display = '';
+  })
+}
 
   var currencyItemsContainer = document.querySelectorAll('.choose-currency__list');
   [].forEach.call(currencyItemsContainer, function(item){
@@ -123,9 +141,32 @@ mainNav.onclick = function(e) {
     var chooseBtn = item.querySelector('.form__choose-text');
     chooseBtn.innerHTML = data;
     item.classList.remove('form__group_active');
+  }
 
+[].forEach.call(inputs, searchCurrency);
+var filter = '';
+  function searchCurrency(input){
+    var parent = input;
+    while(!parent.classList.contains('form__group')){
+      parent = parent.parentNode;
+    }
+    var allCurrencyItems = parent.querySelectorAll('.choose-currency__item');
+
+    input.onkeyup = function() {
+    filter = this.value.toUpperCase();
+    [].forEach.call(allCurrencyItems, function(item){
+      var data = item.getAttribute('data-currency');
+      if(data.toUpperCase().indexOf(filter) > -1){
+        item.style.display = "";
+      } else {
+        item.style.display = "none";
+      }
+    })
+    }
   }
 }());
+
+
 
 
 //SHOW TRANSAKTIONS ON THE MAP
@@ -174,82 +215,4 @@ mainNav.onclick = function(e) {
     videoPlayBtn.classList.remove('video__playBtn_hidden');
     video.pause();
   };
-}());
-
-
-//FORM VALIDATION
-(function () {
-        $('.user-form').each(function () {
-            $(this).on('submit', function () {
-                $(this).validate({
-                    rules: {
-                        email: 'required',
-                        password: 'required'
-                    },
-                    messages: {
-                        email: 'Введите корректный email',
-                        password: 'Введите корректный пароль'
-                    },
-                    errorPlacement: function (error, element) {
-                        element.attr("placeholder", error[0].outerText);
-                    }
-                });
-              /*  if ($(this).valid()) {
-                    let wrap = $(this)[0].closest('.form-hide-on-success');
-                    console.log(wrap);
-                    if (wrap) {
-                        $(wrap).siblings('.form-success').show();
-                        $(wrap).hide();
-                    }
-                }*/
-              if($(this).valid()){
-                $('#register-form-btn').prop('disabled', true);
-                var data = $(this).serialize();
-                $.ajax({
-                  method: 'GET',
-                  url: 'http://jsonplaceholder.typicode.com/posts',
-                  data: data,
-                  success: function(){
-                    console.log(true)
-                  },
-                  error: function(){
-                    console.log(false)
-                  },
-                  complete: function(){
-                    $('#register-form-btn').prop('disabled', false);
-                  }
-                })
-              }
-                return false;
-            })
-        });
-}());
-
-
-//LOGIN or REGISTER WINDOW OPEN/CLOSE
-(function(){
-  var openRegisterWindow = document.getElementById('user-signInUp-openBtn'),
-      closeBtn = document.getElementById('user-signInUp-closeBtn'),
-      userSignInUpWindow = document.querySelector('.s-register'),
-      userSignInUpWindowPic = document.querySelector('.s-register__picture-block'),
-      userSignInUpWindowForm = document.querySelector('.s-register__form-block')
-
-  openRegisterWindow.onclick = function(){
-    userSignInUpWindow.classList.add('s-register_active')
-    userSignInUpWindowPic.classList.remove('s-register__picture-block_disabled')
-    userSignInUpWindowForm.classList.remove('s-register__form-block_disabled')
-    userSignInUpWindowPic.classList.add('s-register__picture-block_active')
-    userSignInUpWindowForm.classList.add('s-register__form-block_active')
-  }
-  closeBtn.onclick = function(){
-    setTimeout(function(){
-      userSignInUpWindow.classList.remove('s-register_active');
-    },500)
-    userSignInUpWindowPic.classList.remove('s-register__picture-block_active')
-    userSignInUpWindowPic.classList.add('s-register__picture-block_disabled')
-    userSignInUpWindowForm.classList.remove('s-register__form-block_active')
-    userSignInUpWindowForm.classList.add('s-register__form-block_disabled')
-
-
-  }
 }());
